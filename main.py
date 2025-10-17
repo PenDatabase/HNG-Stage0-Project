@@ -53,6 +53,7 @@ def get_user_details(request: Request):
     
     # Return response
     result = {
+        "status":"success",
         "user": user_data,
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "fact": cat_fact
