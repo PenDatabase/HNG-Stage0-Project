@@ -40,12 +40,12 @@ def get_user_details(request: Request):
         "email": "davideneasatochibueze@gmail.com",
         "name": "David Eneasato",
         "stack": "Python/FastAPI"
-    },
+    }
 
     # Handle third party server error gracefully
     cat_fact = "Could not fetch cat fact at the moment. please try again later"
     try:
-        response = requests.get("https://catfact.ninja/fact")
+        response = requests.get("https://catfact.ninja/fact", timeout=5)
         response.raise_for_status()
         cat_fact = response.json().get("fact", cat_fact)
     except (requests.exceptions.RequestException, ValueError) as e:
